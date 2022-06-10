@@ -9,12 +9,12 @@ typedef EFI_STATUS (*EFI_TEXT_STRING)(
 typedef struct _EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL {
     void *dummy;
     EFI_TEXT_STRING OutputString;
-} _EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL;
+} EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL;
 
 typedef struct {
     char dummy[52];
     EFI_HANDLE ConsoleOutHandle;
-    _EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *ConOut;
+    EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *ConOut;
 } EFI_SYSTEM_TABLE;
 
 EFI_STATUS EfiMain(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable) {
