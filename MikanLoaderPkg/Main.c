@@ -123,7 +123,7 @@ EFI_STATUS OpenGOP(EFI_HANDLE image_handle,
     gBS->OpenProtocol(
         gop_handles[0], 
         &gEfiGraphicsOutputProtocolGuid, 
-        (VIOD**)gop, 
+        (VOID**)gop, 
         image_handle, 
         NULL, 
         EFI_OPEN_PROTOCOL_BY_HANDLE_PROTOCOL);
@@ -172,7 +172,7 @@ EFI_STATUS EFIAPI UefiMain (
     memmap_file->Close(memmap_file);
 
     // #@@range_begin(gop)
-    EFI_GRAPHICS_OUTPUT_PROTOCOL* gop:
+    EFI_GRAPHICS_OUTPUT_PROTOCOL* gop;
     OpenGOP(image_handle, &gop);
     Print(L"Resolution: %ux%u, Pixel Format: %s, %u pixels/line\n", 
         gop->Mode->Info->HorizontalResolution, 
